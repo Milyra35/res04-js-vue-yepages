@@ -1,7 +1,7 @@
 let bookList = sessionStorage.getItem("books");
 // console.log(bookList);
 let books = JSON.parse(bookList);
-console.log(books);
+// console.log(books);
 
 let ListOfBooks = {
     data() {
