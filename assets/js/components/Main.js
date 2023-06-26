@@ -9,12 +9,15 @@ let Main = {
     components : {
         ListOfBooks
     },
+    mounted() {
+        this.sortList();    
+    },
     setup() {
         let path = window.location.pathname;
         
         return {
             path : path
-        }
+        };
     },
     template : `
         <main>
@@ -40,6 +43,33 @@ let Main = {
             </article>
         </main>
     `,
+    methods : {
+        sortList()
+        {
+            let categories = document.querySelectorAll("main aside ul li");
+        	let bookByCat = document.querySelectorAll("main .list-of-books article");
+        	
+        	for (let categorie of categories) {
+        		categorie.addEventListener("click", function (event) {
+        			let filters = event.target.textContent;
+        			event.target.classList.toggle("selected");
+        			
+        			for (let book of bookByCat) {
+        			let bookCategory = book.querySelector("p.category").textContent;
+        			
+        				if (bookCategory === filters) 
+        				{
+        					book.classList.toggle("active");
+        				} 
+        				else if (bookCategory !== filters) 
+        				{
+        					book.classList.toggle("inactive");
+        				}
+        			}
+        		});
+        	}
+        }
+    }
 };
 
 export { Main };
