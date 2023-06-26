@@ -3,8 +3,7 @@ import { ListOfBooks } from './ListOfBooks.js';
 let Main = {
     data() {
         return {
-            books : [
-            ]
+            
         };
     },
     components : {
