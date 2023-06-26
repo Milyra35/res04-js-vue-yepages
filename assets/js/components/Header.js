@@ -7,7 +7,7 @@ let Header = {
             links : [
                 {
                     title : "Accueil",
-                    link : "index.html"
+                    link : "../index.html"
                 },
                 {
                     title : "Livres",
@@ -16,14 +16,6 @@ let Header = {
                 {
                     title : "Compte",
                     link : "compte/index.html"
-                }
-            ],
-            titles : [
-                {
-                    title : "Votre bibliothèque en ligne"
-                },
-                {
-                    title : "La collection"
                 }
             ]
         };
@@ -46,7 +38,8 @@ let Header = {
             </section>
             <section>
                 <h1><span>Yep</span>ages</h1>
-                <h2>Votre bibliothèque en ligne</h2>
+                <h2 v-if="path === '/res04-js-vue-yepages/index.html'">Votre bibliothèque en ligne</h2>
+                <h2 v-if="path === '/res04-js-vue-yepages/livres/index.html'" class="title">La collection</h2>
                 <div v-if="path === '/res04-js-vue-yepages/index.html'">
                     <button>Les livres</button>
                     <button>Mon compte</button>
